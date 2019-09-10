@@ -12,7 +12,7 @@ class App extends React.Component {
     this.handleUpVote = this.handleUpVote.bind(this);
     this.handleDownVote = this.handleDownVote.bind(this);
     this.state = {
-      postList: [{ title: "first post", bodyText: "first post BLAH BLAH BLAH BLAH BLAH BLAH BLAH", id: v4(), score: 0 }]
+      postList: [{ title: "first post", bodyText: "first post BLAH BLAH BLAH BLAH BLAH BLAH BLAH", id: v4(), upVotes: 0, downVotes: 0 }]
     };
   }
 
@@ -33,13 +33,13 @@ class App extends React.Component {
 
   handleUpVote(postId) {
     let postListClone = this.state.postList.slice();
-    this.getPostFromId(postListClone, postId).score++;
+    this.getPostFromId(postListClone, postId).upVotes++;
     this.setState({ postList: postListClone });
   }
 
   handleDownVote(postId) {
     let postListClone = this.state.postList.slice();
-    this.getPostFromId(postListClone, postId).score--;
+    this.getPostFromId(postListClone, postId).downVotes++;
     this.setState({ postList: postListClone });
   }
 

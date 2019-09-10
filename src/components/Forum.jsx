@@ -12,7 +12,8 @@ const Forum = (props) => {
         <Post
           title={post.title}
           bodyText={post.bodyText}
-          score={post.score}
+          upVotes={post.upVotes}
+          downVotes={post.downVotes}
           onUpVote={props.onUpVote}
           onDownVote={props.onDownVote}
           key={post.id}

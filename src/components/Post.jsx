@@ -13,9 +13,8 @@ const Post = (props) => {
     <div style={postStyles}>
       <h3>{props.title}</h3>
       <p>{props.bodyText}</p>
-      <p>{props.score}</p>
-      <button onClick={() => { props.onUpVote(props.postId) }}>↑</button>
-      <button onClick={() => { props.onDownVote(props.postId) }}>↓</button>
+      <button onClick={() => { props.onUpVote(props.postId) }}>↑ {props.upVotes}</button>
+      <button onClick={() => { props.onDownVote(props.postId) }}>↓ {props.downVotes}</button>
     </div >
   );
 };
@@ -23,7 +22,8 @@ const Post = (props) => {
 Post.propTypes = {
   title: PropTypes.string,
   bodyText: PropTypes.string,
-  score: PropTypes.number,
+  upVotes: PropTypes.number,
+  downVotes: PropTypes.number,
   onUpVote: PropTypes.func,
   onDownVote: PropTypes.func,
   postId: PropTypes.string
