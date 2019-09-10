@@ -7,13 +7,12 @@ const Post = (props) => {
     borderColor: "black",
     margin: "10px",
     padding: "10px"
-  }
+  };
 
   return (
     <div style={postStyles}>
-      <h5>{props.title}</h5>
+      <h3>{props.title}</h3>
       <p>{props.bodyText}</p>
-
     </div>
   );
 };

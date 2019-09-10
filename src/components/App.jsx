@@ -2,13 +2,14 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 import CreatePost from "./CreatePost";
 import Forum from "./Forum";
+import v4 from 'UUID';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.handleNewFormPost = this.handleNewFormPost.bind(this);
     this.state = {
-      postList: []
+      postList: [{ title: "first post", bodyText: "first post BLAH BLAH BLAH BLAH BLAH BLAH BLAH", id: v4() }]
     };
   }
 
@@ -22,7 +23,7 @@ class App extends React.Component {
     return (
       <div>
         <div>
-          Upvote Forum
+          <h1>Upvote Forum</h1>
           <hr />
         </div>
         <Switch>
