@@ -11,7 +11,7 @@ class App extends React.Component {
     this.handleNewFormPost = this.handleNewFormPost.bind(this);
     this.handleUpVote = this.handleUpVote.bind(this);
     this.handleDownVote = this.handleDownVote.bind(this);
-    this.sortPostList = this.sortPostList.bind(this);
+    // this.sortPostList = this.sortPostList.bind(this);
     this.state = {
       postList: [{ title: "first post", bodyText: "first post BLAH BLAH BLAH BLAH BLAH BLAH BLAH", id: v4(), upVotes: 0, downVotes: 0 }]
     };
@@ -44,13 +44,13 @@ class App extends React.Component {
     this.setState({ postList: postListClone });
   }
 
-  sortPostList() {
-    let postListClone = this.state.postList.slice();
-    postListClone.sort(function (a, b) {
-      return (b.upVotes - b.downVotes) - (a.upVotes - a.downVotes);
-    });
-    return postListClone;
-  }
+  // sortPostList() {
+  //   let postListClone = this.state.postList.slice();
+  //   postListClone.sort(function (a, b) {
+  //     return (b.upVotes - b.downVotes) - (a.upVotes - a.downVotes);
+  //   });
+  //   return postListClone;
+  // }
 
   render() {
     return (
@@ -61,7 +61,7 @@ class App extends React.Component {
         </div>
         <Switch>
           <Route exact path='/createPost' render={() => <CreatePost onNewFormPost={this.handleNewFormPost} />} />
-          <Route exact path='/' render={() => <Forum postList={this.state.postList} sortedPostList={this.sortPostList()} onUpVote={this.handleUpVote} onDownVote={this.handleDownVote} />} />
+          <Route exact path='/' render={() => <Forum postList={this.state.postList} onUpVote={this.handleUpVote} onDownVote={this.handleDownVote} />} />
         </Switch>
       </div>
     );
