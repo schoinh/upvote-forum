@@ -4,11 +4,11 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 const Forum = (props) => {
-  ;
+
   return (
     <div>
       <Link to="/createPost"><button>New Post</button></Link>
-      {props.postList.map(post =>
+      {props.sortedPostList.map(post =>
         <Post
           title={post.title}
           bodyText={post.bodyText}
@@ -27,7 +27,8 @@ const Forum = (props) => {
 Forum.propTypes = {
   postList: PropTypes.array,
   onUpVote: PropTypes.func,
-  onDownVote: PropTypes.func
+  onDownVote: PropTypes.func,
+  sortedPostList: PropTypes.array
 };
 
 export default Forum;

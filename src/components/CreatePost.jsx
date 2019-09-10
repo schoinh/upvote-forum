@@ -10,7 +10,7 @@ const CreatePost = (props) => {
 
   function handleNewFormPostSubmission(event) {
     event.preventDefault();
-    props.onNewFormPost({ title: _title.value, bodyText: _bodyText.value, score: 0, id: v4() });
+    props.onNewFormPost({ title: _title.value, bodyText: _bodyText.value, upVotes: 0, downVotes: 0, id: v4() });
     _title.value = "";
     _bodyText.value = "";
     //props. //whatever method we are passing in, pass in variables from form
