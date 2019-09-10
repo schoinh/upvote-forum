@@ -1,20 +1,35 @@
 import React from "react";
-// import { Switch, Route } from "react-router-dom";
-// import { Link } from "react-router-dom";
-// import Header from "./Header";
-// import PropTypes from "prop-types";
-// import imageName from '../assets/images/imageFileName.jpg';
+import { Switch, Route } from "react-router-dom";
+import CreatePost from './CreatePost';
+import Forum from './Forum';
 
-function App() {
-  return (
-    <div>
-      {/* <Switch>
-        <Route exact path='/' component={TicketList} />
-        <Route path='/newticket' component={NewTicketForm} />
-      </Switch> */}
-      {/* <Link to="/">Home</Link> */}
-    </div>
-  );
+class App extends React.Component {
+  constructor(props)
+  {
+    super(props)
+    this.handleNewFormPost = this.handleNewFormPost.bind(this);
+    this.state = {
+      postList : []
+    }
+  }
+
+  handleNewFormPost(newPost)
+  {
+    let postListClone = this.state.postList.slice();
+    postListClone.push(newPost);
+    this.setState({postList : postListClone});
+  }
+
+  render(){
+    return (
+      <div>
+        <Switch>
+          <Route exact path = '/createPost' render={()=><CreatePost handleNewFormPost={this.handleNewFormPost}/>}/>
+         <Route exact path = '/' render={() => <Forum postList = {this.state.postList}/>}/>
+        </Switch>
+      </div>
+    );
+  }
 }
 
 // Ticket.propTypes = {
