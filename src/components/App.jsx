@@ -10,13 +10,13 @@ class App extends React.Component {
 
     this.handleNewFormPost = this.handleNewFormPost.bind(this);
     this.handleUpVote = this.handleUpVote.bind(this);
+    this.handleDownVote = this.handleDownVote.bind(this);
     this.state = {
       postList: [{ title: "first post", bodyText: "first post BLAH BLAH BLAH BLAH BLAH BLAH BLAH", id: v4(), score: 0 }]
     };
   }
 
   handleNewFormPost(newPost) {
-
     let postListClone = this.state.postList.slice();
     postListClone.push(newPost);
     this.setState({ postList: postListClone });
@@ -32,11 +32,14 @@ class App extends React.Component {
   }
 
   handleUpVote(postId) {
-    console.log("POST ID: ", postId);
     let postListClone = this.state.postList.slice();
-    //console.log(postListClone);
     this.getPostFromId(postListClone, postId).score++;
-    //console.log(this.getPostFromId(postListClone, postId));
+    this.setState({ postList: postListClone });
+  }
+
+  handleDownVote(postId) {
+    let postListClone = this.state.postList.slice();
+    this.getPostFromId(postListClone, postId).score--;
     this.setState({ postList: postListClone });
   }
 

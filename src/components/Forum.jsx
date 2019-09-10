@@ -8,20 +8,17 @@ const Forum = (props) => {
   return (
     <div>
       <Link to="/createPost"><button>New Post</button></Link>
-      {
-
-        props.postList.map(post =>
-          <Post
-            title={post.title}
-
-            bodyText={post.bodyText}
-            score={post.score}
-            onUpVote={props.onUpVote}
-            onDownVote={props.onDownVote}
-            key={post.id}
-            postId={post.id}
-          />
-        )}
+      {props.postList.map(post =>
+        <Post
+          title={post.title}
+          bodyText={post.bodyText}
+          score={post.score}
+          onUpVote={props.onUpVote}
+          onDownVote={props.onDownVote}
+          key={post.id}
+          postId={post.id}
+        />
+      )}
     </div>
   );
 };
