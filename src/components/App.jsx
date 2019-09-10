@@ -21,6 +21,10 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <div>
+          Upvote Forum
+          <hr />
+        </div>
         <Switch>
           <Route exact path='/createPost' render={() => <CreatePost onNewFormPost={this.handleNewFormPost} />} />
           <Route exact path='/' render={() => <Forum postList={this.state.postList} />} />
